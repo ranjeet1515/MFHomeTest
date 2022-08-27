@@ -1,0 +1,29 @@
+The Misson
+
+The server below implements an API called recursive:
+
+http://challenge-server.code-check.io/
+
+your task is to implement an efficient recursive function using this recursive API 
+
+
+Implementation details
+
+API specifications
+API specifications are as follows 
+. Endpoint : /api/recursive/ask
+. HTTP Method : GET
+. Parameters(Query)
+  .seed: seed string of the solution's input(Required)
+  .n: integer valuethe solution's input(Required)
+
+Response:
+. Json object including the following keys
+	. seed: input parameter seed
+	. n: input parameter n 
+	. result: number between 1 and 3000 based on a hash value computed from seed and n
+. each input will always have the same result
+. the funtion can onlybe executed up to 50 times per hour for a given seed string 
+. If this limit is exeeded, the API returns 503 Service Unavailable
+. after one hour, the counter is reset and API calls can be performed again with in the same seed string
+
